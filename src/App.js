@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css';
@@ -14,9 +14,14 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const classes = useStyles();
 
+  const [files,setFiles] = useState(null)
+  const [] = useState(null)
+  const [] = useState(null)
+
   const inputFile = (e) => {
     let files = e.target.files;
-    console.log(files)
+    setFiles( URL.createObjectURL(files[0]))
+    console.log( URL.createObjectURL(files[0]))
   }
 
   return (
@@ -26,14 +31,14 @@ function App() {
           <p className="container-title">Source Image</p>
           <div className="image-container">
 
-            <img alt="image source" src="" />
+            <img alt="image source" src={files} width="100%" height="100%"/>
           </div>
         </div>
         <div>
           <p className="container-title">Detection Image</p>
           <div className="image-container">
 
-            <img alt="shape" src="" />
+            <img alt="shape" src="shape" />
           </div>
         </div>
       </div>
